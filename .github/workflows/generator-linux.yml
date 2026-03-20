@@ -809,6 +809,7 @@ jobs:
 
   deploy:
     needs: [build-rustdesk-linux,build-flatpak,build-appimage]
+    if: always() && needs.build-rustdesk-linux.result == 'success'
     runs-on: ubuntu-latest
     steps:
 
